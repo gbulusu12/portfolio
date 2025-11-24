@@ -11,274 +11,186 @@
   <meta property="og:image" content="" />
   <meta name="theme-color" content="#0f172a" />
 
-  <!-- Favicon (optional): add a file named favicon.ico in the repo root -->
   <link rel="icon" href="favicon.ico" />
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b1020;           /* page background */
-      --card:#121934;         /* cards */
-      --ink:#e5eaf5;          /* primary text */
-      --muted:#aab3cf;        /* secondary text */
-      --accent:#7dd3fc;       /* cyan */
-      --accent-2:#a78bfa;     /* violet */
-      --chip:#1b244a;         /* skill chips */
-      --ring:rgba(125,211,252,.35);
-      --max:1100px;
-      --radius:20px;
+      --bg:#05070f;
+      --card:#0d152b;
+      --ink:#e8edfa;
+      --muted:#9aa4c7;
+      --accent:#7dd3fc;
+      --accent-2:#a78bfa;
+      --chip:#141d39;
+      --radius:22px;
+      --max:1200px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 10% -10%,rgba(124,58,237,.25),transparent),radial-gradient(800px 500px at 90% -10%,rgba(14,165,233,.20),transparent),var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:radial-gradient(1200px 600px at 0% -20%,rgba(124,58,237,.25),transparent),radial-gradient(900px 600px at 100% -20%,rgba(14,165,233,.16),transparent),var(--bg);font-family:Inter,sans-serif;color:var(--ink);line-height:1.65;padding-bottom:80px}
+    a{color:var(--accent)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:32px}
+
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
     .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#0b1020;font-weight:800;box-shadow:0 10px 30px rgba(125,211,252,.35)}
-    nav a{margin:0 10px;color:var(--ink);opacity:.85}
+    .logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#05070f;font-weight:800;box-shadow:0 10px 30px rgba(125,211,252,.35)}
+
+    nav a{margin:0 14px;color:var(--ink);opacity:.85;font-weight:500}
     nav a:hover{opacity:1}
 
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;margin:44px 0}
-    .hero h1{font-size:clamp(28px,4.6vw,48px);line-height:1.1;margin:10px 0 16px}
-    .sub{color:var(--muted);font-size:clamp(14px,2.2vw,16px)}
-    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .btn{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#081028;border:0;padding:12px 16px;border-radius:14px;font-weight:700;box-shadow:0 10px 26px var(--ring);cursor:pointer}
+    .hero{margin:60px 0;display:grid;grid-template-columns:1.3fr .9fr;gap:40px}
+    .hero h1{font-size:clamp(32px,4.6vw,56px);line-height:1.12;margin-bottom:14px;font-weight:800}
+    .sub{color:var(--muted);font-size:17px}
+
+    .btn{background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:13px 20px;border-radius:14px;color:#05070f;font-weight:700;box-shadow:0 10px 30px rgba(125,211,252,.3);display:inline-block;margin-right:12px;margin-top:16px}
     .btn.sec{background:transparent;border:1px solid rgba(255,255,255,.14);color:var(--ink)}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.25)}
 
-    .grid{display:grid;gap:18px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-    }
+    .card{background:rgba(255,255,255,.04);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);padding:20px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.4)}
 
-    section{margin:42px 0}
-    section h2{font-size:24px;margin:0 0 14px}
-    .kicker{letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+    section{margin:60px 0}
+    h2{font-size:28px;margin-bottom:18px;font-weight:700}
+    .grid{display:grid;gap:22px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
 
-    .xp, .edu, .proj{padding:18px;border-radius:var(--radius)}
-    .xp h3, .edu h3, .proj h3{margin:6px 0 4px;font-size:18px}
-    .meta{color:var(--muted);font-size:13px}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.cols-2,.cols-3{grid-template-columns:1fr}}
 
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .chip{background:var(--chip);color:#cfe3ff;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.08)}
+    .chips{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .chip{background:var(--chip);padding:6px 12px;border-radius:999px;font-size:13px;border:1px solid rgba(255,255,255,.06)}
 
-    .timeline{position:relative}
-    .timeline:before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),transparent)}
-    .tl-item{position:relative;padding-left:28px;margin:18px 0}
-    .tl-item:before{content:"";position:absolute;left:5px;top:6px;width:12px;height:12px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 3px rgba(125,211,252,.25)}
-
-    .footer{color:var(--muted);font-size:14px;padding:28px 0;border-top:1px solid rgba(255,255,255,.08);margin-top:42px}
-
-    .badge{font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-
-    .note{background:#0b132a;border:1px dashed rgba(255,255,255,.18);padding:10px;border-radius:12px;color:#c9d1ef}
+    footer{text-align:center;color:var(--muted);padding-top:50px;font-size:14px}
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Gautam Bulusu",
-    "jobTitle": "Applied ML / CV Engineer",
-    "email": "gautambulusu12@gmail.com",
-    "url": "https://your-github-username.github.io",
-    "alumniOf": [
-      {"@type":"CollegeOrUniversity","name":"University of Maryland, College Park"},
-      {"@type":"CollegeOrUniversity","name":"KJ Somaiya College of Engineering"}
-    ],
-    "sameAs": []
-  }
-  </script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">GB</div>
-        <div>
-          <div style="font-weight:800;font-size:18px">Gautam Bulusu</div>
-          <div class="sub">Applied Machine Learning • Computer Vision • Robotics</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<div class="wrap">
 
-    <section class="hero">
-      <div>
-        <div class="kicker">Hello!</div>
-        <h1>Building practical, human-centered AI — from <span class="badge">medical imaging</span> to <span class="badge">automation</span>.</h1>
-        <p class="sub">I’m Gautam, an engineer who loves turning ideas into end‑to‑end systems. Early inspiration from <em>Iron Man</em> got me chasing the feeling of creating tools like JARVIS — today that means ML, CV, and thoughtful software that makes teams faster.</p>
-        <div class="cta">
-          <a class="btn" href="#projects">See my work</a>
-          <a class="btn sec" href="Gautam_Resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
-        </div>
-      </div>
-      <div class="card" style="padding:18px">
-        <div class="kicker">Highlights</div>
-        <ul>
-          <li>Shipped a Python web app that automated finance approvals for <strong>71 luxury brands</strong> at RBL, taking cycles from weeks to days.</li>
-          <li>Developed a pipeline (U-Net++ + classic CV) to quantify scoliosis angles from CT scans at Jio Institute.</li>
-          <li>Ranked <strong>6th in India</strong> at ABU Robocon; led training for 40–50 juniors in DS & embedded programming.</li>
-          <li>Remote sensing study measured <strong>−1651.94 ha</strong> mangrove loss (2002–2022) and mapped restoration feasibility.</li>
-        </ul>
-      </div>
-    </section>
+<header>
+  <div class="brand"><div class="logo">GB</div>
+    <div>
+      <div style="font-weight:800;font-size:20px">Gautam Bulusu</div>
+      <div class="sub">Applied Machine Learning • Computer Vision • Robotics</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+  </nav>
+</header>
 
-    <section id="about">
-      <h2>About</h2>
-      <div class="card" style="padding:18px">
-        <p>I enjoy projects where algorithms meet real users — dashboards that executives actually open, models that help doctors explain conditions, and robots that complete the course <em>faster</em>. I value clarity, iteration, and doing the unglamorous plumbing that makes the ML work reliable.</p>
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="xp card">
-            <h3>Reliance Brands Limited — Data Analyst & Software Developer</h3>
-            <div class="meta">Aug 2024 – Mar 2025 • Mumbai</div>
-            <p>Built an end‑to‑end Python web app to replace Excel-driven capital approvals across 71 brands (Balenciaga, Giorgio Armani, Zegna, etc.), adding email-based flows up to CFOs/CEO and integrated IRR & payback analytics.</p>
-            <ul>
-              <li>Cut processing time from weeks to days; reduced version drift and manual checks.</li>
-              <li>Automated Tableau report retrieval (login, filtering, download), saving ~15 min/day for 25 users.</li>
-            </ul>
-            <div class="chips">
-              <span class="chip">Python</span><span class="chip">Web</span><span class="chip">Pandas</span><span class="chip">Dashboards</span><span class="chip">Workflow Automation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="xp card">
-            <h3>Jio Institute (CVMI Lab) — Computer Vision Intern</h3>
-            <div class="meta">Jun 2023 – Sep 2023 • Navi Mumbai</div>
-            <p>Processed 374 4D CT scans (VerSe 2019–2020) using U‑Net++ for vertebrae segmentation; extracted MIP coronal slices and computed Cobb angles via edge/contour/polygon analysis for scoliosis assessment.</p>
-            <div class="chips">
-              <span class="chip">U‑Net++</span><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">Medical Imaging</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="xp card">
-            <h3>Team KJSCE Robocon — Vice-Captain & Software Lead</h3>
-            <div class="meta">Aug 2022 – Jun 2023 • Mumbai</div>
-            <p>Led software for autonomous tasks; trained 40–50 juniors on Data Structures, embedded programming, and image processing. Integrated Kinect on Jetson Nano for arena mapping; implemented path planning and perception.</p>
-            <ul>
-              <li>All‑India Rank: <strong>6th</strong> at ABU Robocon (IIT Delhi).</li>
-            </ul>
-            <div class="chips"><span class="chip">ROS</span><span class="chip">Jetson</span><span class="chip">Path Planning</span><span class="chip">YOLOv5</span></div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="xp card">
-            <h3>Team KJSCE Robocon — Coding Team Member</h3>
-            <div class="meta">Sept 2021 – Aug 2022 • Mumbai</div>
-            <p>Built microcontroller↔motor-driver comms; implemented Dijkstra on tf02 LiDAR for robot‑2, reducing a lap by 3s; deployed a custom YOLOv5 on Raspberry Pi 3B+ for real‑time blue‑ball targeting on robot‑1.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="grid cols-2">
-        <article class="proj card">
-          <h3>Mangrove Assessment using Satellite Imaging</h3>
-          <div class="meta">Oct 2023 – Apr 2024</div>
-          <p>Analyzed Maharashtra’s coastline (2002–2022) via Python & Google Earth Engine; estimated −1651.94 ha mangrove loss; compared classifiers and found Random Forest outperforming SVM by ~3.06% (Python) and ~2.05% (GEE).</p>
-          <div class="chips"><span class="chip">Remote Sensing</span><span class="chip">GEE</span><span class="chip">Random Forest</span><span class="chip">SVM</span></div>
-        </article>
-        <article class="proj card">
-          <h3>Ocular Diseases Detection</h3>
-          <div class="meta">Jan 2023 – Apr 2023</div>
-          <p>Transfer‑learned VGG16/MobileNetV2 to classify Normal, Cataract, Glaucoma, and Diabetic Retinopathy; image preprocessing & augmentation pipelines; F1: 0.97 (Normal), 0.69 (Cataract), 0.90 (Glaucoma), 0.88 (Diabetic).</p>
-          <div class="chips"><span class="chip">Deep Learning</span><span class="chip">Transfer Learning</span><span class="chip">Medical Imaging</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="card" style="padding:18px">
-        <div class="chips">
-          <span class="chip">Python</span><span class="chip">C/C++</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">MATLAB</span><span class="chip">PHP</span>
-          <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">GCP</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">PyCharm</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div class="grid cols-2">
-        <div class="edu card">
-          <h3>University of Maryland, College Park — MS, Applied Machine Learning</h3>
-          <div class="meta">Aug 2025 – May 2027 • GPA: 4.0/4.0</div>
-          <p>Coursework focus: ML, CV, NLP, systems for data‑driven applications.</p>
-        </div>
-        <div class="edu card">
-          <h3>KJ Somaiya College of Engineering — B.Tech, Information Technology</h3>
-          <div class="meta">Grad: May 2024 • CGPA: 8.54/10</div>
-          <p>Favorites: Data Structures, Algorithms, OS, Deep Learning & Fuzzy Logic, Cloud Computing, IR.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="certs">
-      <h2>Certifications</h2>
-      <div class="grid cols-3">
-        <div class="card" style="padding:14px"><strong>DeepLearning.AI</strong><br/>Neural Networks & Deep Learning; Intro to TensorFlow (2022–2023)</div>
-        <div class="card" style="padding:14px"><strong>Coursera</strong><br/>Deep Learning & Reinforcement Learning (Apr 2023)</div>
-        <div class="card" style="padding:14px"><strong>UIUC</strong><br/>Object-Oriented & Data Structures (Jan 2023)</div>
-        <div class="card" style="padding:14px"><strong>IBM Skills Network</strong><br/>Python for DS, AI & Dev (Jul 2022)</div>
-        <div class="card" style="padding:14px"><strong>Imperial</strong><br/>Math for ML (Jan 2023)</div>
-        <div class="card" style="padding:14px"><strong>Google</strong><br/>Crash Course on Python (Sep 2022)</div>
-        <div class="card" style="padding:14px"><strong>MathWorks</strong><br/>Image Processing; MATLAB Onramp (2022)</div>
-      </div>
-    </section>
-
-    <section id="volunteer">
-      <h2>Community</h2>
-      <div class="card" style="padding:18px">
-        <ul>
-          <li>Volunteer Judge, World Robot Olympiad — West India Regionals (Jul 2022).</li>
-          <li>Organized a 2‑day robotics workshop for 80 students; taught basics & built a phone‑controlled soccer robot(November 2022).</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card" style="padding:18px">
-        <p><strong>Email:</strong> <a href="mailto:gautambulusu12@gmail.com">gautambulusu12@gmail.com</a> • <strong>Alt:</strong> <a href="mailto:gbulusu@umd.edu">gbulusu@umd.edu</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+12407919949">+1 240 791 99 49</a></p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div>© <span id="y"></span> Gautam Bulusu • Built with vanilla HTML/CSS • Hosted on GitHub Pages</div>
-    </footer>
+<section class="hero">
+  <div>
+    <h1>Turning research-grade AI into <span style="color:var(--accent)">real-world systems</span>.</h1>
+    <p class="sub">I build ML, CV, and automation tools that make teams faster — from enterprise finance workflows to medical imaging pipelines and competitive robotics. I value clarity, iteration, and systems that work reliably end-to-end.</p>
+    <a class="btn" href="#projects">View Projects</a>
+    <a class="btn sec" href="Gautam_Resume.pdf" target="_blank">Download Résumé</a>
   </div>
 
-  <script>
-    // year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <div class="card">
+    <h3 style="margin-bottom:10px">Highlights</h3>
+    <ul>
+      <li>Cut processing time by 80% by replacing Excel-driven financial workflows with a Streamlit platform for 71 brands.</li>
+      <li>Automated Tableau reporting, saving ~6,250 employee-hours yearly.</li>
+      <li>SAM + weak supervision pipeline for vertebrae segmentation; 92% Cobb-angle accuracy.</li>
+      <li>Ranked 6th in India at ABU Robocon; trained 40–50 students in DS & robotics.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="card">
+    <p>I’m driven by building ML systems that actually ship — not just notebooks. Whether it’s automating enterprise reporting, speeding up orthopedic diagnostics, or optimizing robot navigation, I love bridging research and deployment.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Software Engineer Intern — Reliance Brands Limited</h3>
+      <p class="sub">Jul 2024 – Mar 2025 • Mumbai</p>
+      <ul>
+        <li>Built a Python + Streamlit platform replacing Excel workflows; reduced approval cycles from weeks to days.</li>
+        <li>Automated Tableau reporting (login, filtering, downloads), saving ~6,250 analyst-hours/year.</li>
+        <li>Integrated IRR, payback, P&L, and PERT dashboards for leadership decision-making.</li>
+        <li>Deployed on Azure App Services with enterprise-grade security & reliability.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Computer Vision Intern — Jio Institute</h3>
+      <p class="sub">Jun 2023 – Sep 2023 • Navi Mumbai</p>
+      <ul>
+        <li>Used SAM + weak supervision to segment vertebrae in 3D/4D CT scans.</li>
+        <li>Built an automated Cobb-angle pipeline with 92% accuracy.</li>
+        <li>Processed 374 CT scans from VerSe (2019–2020).</li>
+        <li>Accelerated orthopedic diagnostic workflow by 30%.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Market Regime Detection (UMD)</h3>
+      <p class="sub">Sep 2025 – Dec 2025</p>
+      <p>Stacking model (RF + XGBoost) combining FinBERT sentiment + technical indicators. Achieved 67.8% accuracy, +35% Sharpe improvement, and 26% lower volatility.</p>
+      <div class="chips"><span class="chip">FinBERT</span><span class="chip">XGBoost</span><span class="chip">SHAP</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Mangrove Assessment</h3>
+      <p class="sub">Oct 2023 – Apr 2024</p>
+      <p>Mapped Maharashtra’s mangrove coverage (2002–2022), identifying 1651.94 ha loss; Random Forest > SVM by 3.06%.</p>
+      <div class="chips"><span class="chip">Remote Sensing</span><span class="chip">GEE</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Ocular Disease Detection</h3>
+      <p class="sub">Jan 2023 – Apr 2023</p>
+      <p>Transfer-learned VGG16/MobileNetV2 to classify glaucoma, cataract, DR. F1 up to 0.97.</p>
+      <div class="chips"><span class="chip">Deep Learning</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Robocon Autonomous Systems</h3>
+      <p class="sub">2021 – 2023</p>
+      <p>Integrated Kinect on Jetson Nano, implemented Dijkstra path planning, YOLOv5 targeting, and trained 40–50 juniors.</p>
+      <div class="chips"><span class="chip">ROS</span><span class="chip">Jetson</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <div class="chips">
+      <span class="chip">Python</span><span class="chip">C++</span><span class="chip">Java</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">XGBoost</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">Tableau</span><span class="chip">Power BI</span>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>University of Maryland — MS Applied Machine Learning</h3>
+      <p class="sub">Aug 2025 – May 2027 • GPA: 4.0/4.0</p>
+    </div>
+    <div class="card">
+      <h3>KJ Somaiya College of Engineering — B.Tech IT</h3>
+      <p class="sub">May 2024 • CGPA: 8.54/10</p>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> Gautam Bulusu • Built with Modern HTML/CSS • Hosted on GitHub Pages</footer>
+
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
